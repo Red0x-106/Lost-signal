@@ -115,11 +115,8 @@ function checkAnswer() {
 ========================= */
 
 function goToSignal02() {
-
-    window.location.href = "signal-02.html";
-
+    window.location.href = "./signal-02.html";
 }
-
 
 /* =========================
    SIGNAL 02 GRID
