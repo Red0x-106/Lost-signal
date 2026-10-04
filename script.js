@@ -109,9 +109,8 @@ function checkAnswer() {
 
 
 function goNext() {
-    window.location.href = "signal-02.html";
+    window.location.href = "/Lost-signal.github.io/signal-02.html";
 }
-
 
 
 
