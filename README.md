@@ -3,6 +3,9 @@
 A small browser-based puzzle game made by **red0x**.
 
 You receive strange signals, decode clues, and follow the trail to find out where they lead.
+## LOST SIGNAL WEBSITE
+
+->https://red0x-106.github.io/Lost-signal.github.io/
 
 ## What is it?
 
