@@ -108,12 +108,11 @@ function checkAnswer() {
 }
 
 
-function goToSignal02() {
-
-    window.location.href =
-        "signal 02.html";
-
+function goNext() {
+    window.location.href = "signal-02.html";
 }
+
+
 
 
 let signal02Step = 0;
