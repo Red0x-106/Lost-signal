@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LOST SIGNAL</title>
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+
+        <main class="terminal">
+            <p class="system"> > CONNECION ESTABLISHED.....</p>
+            <P class="system"> > UNKNOWN SIGNL HAS BEEN DETECTED.</P>
+
+            <H1>LOST SIGNAL</H1>
+            <p class="creator">created By <b><u>red0x</u></b></p>
+<div class="signal">
+    <p>SIGNAL 01</p>
+    <h2>18 - 5 - 4 - 0 - 24</h2>
+</div>
+
+             <p class="clue">
+                CLUE: The numbers are not NUMBERS they are disguised, except the 0(zero) it will remain as it is.
+            </p>
+            <p class="hint-info">> EACH TIME YOU ANSWER THREE WRONG SIGNALS MAY REVEAL A CLUE.</p>
+
+
+          <input type="text" id="answer" placeholder="Enter Answer">
+
+<button onclick="checkAnswer()">DECODE</button>
+
+<p id="result"></p>
+
+<button id="continueBtn" onclick="goToSignal02()" style="display: none;">
+    CONTINUE
+</button>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
+</html>
