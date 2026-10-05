@@ -1,0 +1,719 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    padding: 30px 16px;
+    background: #080b0e;
+    color: #b8c0c5;
+    font-family: "Courier New", monospace;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.signal {
+    width: 92%;
+    max-width: 980px;
+    margin: 45px auto;
+}
+
+.signal-03 {
+    padding: 30px;
+    background: #0d1216;
+    border: 1px solid #30383e;
+    box-shadow: 6px 6px 0 #020304;
+}
+
+.small-text {
+    color: #68737a;
+    font-size: 12px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.signal-03 h1 {
+    color: #d4d9dc;
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.message {
+    color: #919ba1;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 7px;
+}
+
+.hint-info {
+    margin-top: 15px;
+    color: #737e84;
+    font-size: 12px;
+}
+
+
+/* =========================
+   PUZZLE BOXES
+========================= */
+
+.signal-box {
+    margin: 25px 0;
+    padding: 22px;
+    background: #090d11;
+    border: 1px solid #303940;
+}
+
+.riddle {
+    color: #aab2b7;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.equation {
+    margin: 15px 0;
+    color: #d2d7da;
+    font-size: 20px;
+}
+
+.signal-box input,
+#location-area input {
+    width: 100%;
+    padding: 11px;
+    margin-top: 15px;
+    background: #06090b;
+    border: 1px solid #39434a;
+    color: #d2d7da;
+    outline: none;
+}
+
+.signal-box input:focus,
+#location-area input:focus {
+    border-color: #727e85;
+}
+
+.signal-box button,
+#location-area button {
+    margin-top: 9px;
+    padding: 10px 18px;
+    background: #151b20;
+    border: 1px solid #59656c;
+    color: #cbd1d4;
+    box-shadow: 4px 4px 0 #020304;
+}
+
+.signal-box button:hover,
+#location-area button:hover {
+    background: #20272c;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #020304;
+}
+
+#riddleResult,
+#equationResult,
+#equation2Result,
+#cityResult,
+#locationResult {
+    min-height: 18px;
+    margin-top: 12px;
+    color: #78838a;
+    font-size: 13px;
+}
+
+
+/* =========================
+   LOCATION
+========================= */
+
+#location-area {
+    margin-top: 25px;
+    padding: 22px;
+    background: #0b1014;
+    border: 1px solid #303940;
+}
+
+#shibuya-step {
+    margin-top: 25px;
+    padding-top: 22px;
+    border-top: 1px solid #2b343a;
+}
+
+
+/* =========================
+   CROSSING GAME
+========================= */
+
+.game-area {
+    margin-top: 30px;
+    padding: 22px;
+    background: #0b1014;
+    border: 1px solid #303940;
+}
+
+.game-title {
+    margin: 12px 0 8px;
+    color: #d2d7da;
+    font-size: 22px;
+}
+
+.game-info {
+    color: #707b82;
+    font-size: 13px;
+}
+
+.game-stats {
+    display: flex;
+    gap: 30px;
+    margin: 18px 0;
+    color: #68747b;
+    font-size: 12px;
+}
+
+.game-stats b {
+    color: #c3cbd0;
+}
+
+
+/* =========================
+   GAME BOARD
+========================= */
+
+#game-board {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    height: 350px;
+    margin: 25px auto;
+    overflow: hidden;
+
+    background: #06090c;
+    border: 1px solid #3b454b;
+}
+
+
+/*
+   SAFE STARTING AREA
+
+   The bottom part of the board is kept
+   visually separate from the moving road.
+*/
+
+#game-board::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+
+    background: #0b1115;
+    border-top: 1px solid #242d33;
+
+    z-index: 1;
+}
+
+
+/* ROAD */
+
+#game-board::before {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: 55px;
+    bottom: 60px;
+
+    background: #11171b;
+
+    border-top: 1px solid #252e34;
+    border-bottom: 1px solid #252e34;
+
+    z-index: 0;
+}
+
+
+/* PLAYER */
+
+#player {
+    position: absolute;
+
+    z-index: 30;
+
+    width: 20px;
+    height: 20px;
+
+    background: #d7dcdf;
+    border: 2px solid #89949a;
+
+    /*
+       Give the player a clear starting zone.
+    */
+    bottom: 15px;
+}
+
+
+/* FINISH */
+
+#finish {
+    position: absolute;
+
+    z-index: 10;
+
+    top: 8px;
+    left: 50%;
+
+    width: 70px;
+    height: 28px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #26322c;
+    border: 1px solid #526e5c;
+
+    color: #88b697;
+    font-size: 11px;
+}
+
+
+/* ROAD LINES */
+
+.road-line {
+    position: absolute;
+
+    z-index: 3;
+
+    left: 0;
+    width: 100%;
+    height: 1px;
+
+    background: #293238;
+}
+
+.line-1 {
+    top: 125px;
+}
+
+.line-2 {
+    top: 245px;
+}
+
+
+/* OBSTACLES */
+
+.moving-obstacle {
+    position: absolute;
+
+    z-index: 15;
+
+    width: 42px;
+    height: 24px;
+
+    background: #713f3f;
+    border: 1px solid #a35b5b;
+}
+
+.moving-obstacle::after {
+    content: "";
+
+    position: absolute;
+
+    right: 5px;
+    top: 7px;
+
+    width: 5px;
+    height: 5px;
+
+    background: #c7b7a0;
+}
+
+
+/* GAME MESSAGE */
+
+#gameMessage {
+    min-height: 20px;
+    margin: 12px 0;
+
+    color: #829097;
+    font-size: 13px;
+}
+
+
+/* START BUTTON */
+
+#startGameBtn {
+    padding: 11px 20px;
+
+    background: #151b20;
+    border: 1px solid #5a666d;
+
+    color: #cbd2d5;
+
+    box-shadow: 4px 4px 0 #020304;
+}
+
+#startGameBtn:hover {
+    background: #20272c;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #020304;
+}
+
+#startGameBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   MINI STAGES
+========================= */
+
+.mini-stage {
+    margin-top: 30px;
+    padding: 22px;
+
+    background: #0b1014;
+    border: 1px solid #303940;
+}
+
+.mini-stage h2 {
+    margin: 12px 0;
+
+    color: #cbd1d4;
+    font-size: 20px;
+}
+
+.stage-text {
+    margin-bottom: 7px;
+
+    color: #858f95;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   JUMBLE
+========================= */
+
+.puzzle-box {
+    margin-top: 20px;
+    padding: 20px;
+
+    background: #090d11;
+    border: 1px solid #303940;
+}
+
+.jumble-words {
+    margin: 15px 0;
+
+    color: #c1c8cc;
+    font-size: 17px;
+}
+
+#jumbleAnswer {
+    width: 100%;
+    padding: 11px;
+
+    background: #06090b;
+    border: 1px solid #39434a;
+
+    color: #d1d6d9;
+    outline: none;
+}
+
+.puzzle-box button {
+    margin-top: 9px;
+    padding: 10px 18px;
+
+    background: #151b20;
+    border: 1px solid #59656c;
+
+    color: #cbd1d4;
+}
+
+.puzzle-box button:hover {
+    background: #20272c;
+}
+
+#jumbleResult {
+    min-height: 18px;
+    margin-top: 12px;
+
+    color: #7d888f;
+    font-size: 13px;
+}
+
+.attempt-info {
+    margin-top: 15px;
+
+    color: #606c73;
+    font-size: 12px;
+}
+
+.attempt-info b {
+    color: #aeb7bc;
+}
+
+
+/* =========================
+   HIDDEN STAGE
+========================= */
+
+#hidden-stage {
+    background: #0a0f13;
+}
+
+#hidden-message-box {
+    min-height: 45px;
+
+    margin: 20px 0;
+    padding: 14px;
+
+    background: #070b0e;
+    border-left: 2px solid #465158;
+}
+
+#hidden-message {
+    color: #9da6ac;
+}
+
+#hiddenContinueBtn {
+    padding: 10px 19px;
+
+    background: #151b20;
+    border: 1px solid #59656c;
+
+    color: #c8d0d4;
+}
+
+#hiddenContinueBtn:hover {
+    background: #20272c;
+}
+
+
+/* =========================
+   MEMORY GAME
+========================= */
+
+.memory-stats {
+    margin: 15px 0;
+
+    color: #68747b;
+    font-size: 13px;
+}
+
+.memory-stats b {
+    color: #c0c8cc;
+}
+
+#memory-board {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 8px;
+
+    max-width: 450px;
+
+    margin: 20px auto;
+}
+
+.memory-card {
+    min-height: 70px;
+
+    background: #13191e;
+
+    border: 1px solid #414b52;
+
+    color: #c5cdd1;
+
+    font-family: inherit;
+}
+
+.memory-card:hover {
+    background: #1c2429;
+}
+
+.memory-card.flipped {
+    background: #20292f;
+    color: #d5dbde;
+}
+
+.memory-card.matched {
+    background: #193024;
+    border-color: #477258;
+    color: #76c894;
+}
+
+#memoryMessage {
+    min-height: 20px;
+    margin-top: 15px;
+
+    color: #829097;
+    font-size: 13px;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final-text {
+    margin-bottom: 7px;
+
+    color: #858f95;
+    font-size: 13px;
+}
+
+.final-box {
+    margin-top: 25px;
+    padding: 20px;
+
+    background: #080d11;
+    border: 1px solid #354047;
+}
+
+.final-status {
+    margin: 10px 0;
+
+    color: #79c998;
+    font-size: 18px;
+}
+
+.final-subtext {
+    color: #66727a;
+    font-size: 12px;
+}
+
+
+/* =========================
+   SIGNAL 04
+========================= */
+
+.signal4-reveal {
+    display: none;
+
+    margin-top: 25px;
+    padding: 22px;
+
+    background: #090e12;
+    border: 1px solid #303940;
+}
+
+.signal4-reveal p {
+    margin-bottom: 9px;
+
+    color: #9ba5ab;
+    font-size: 13px;
+}
+
+.signal4-reveal .dim {
+    color: #59656d;
+}
+
+.signal4-button {
+    display: inline-block;
+
+    margin-top: 15px;
+    padding: 11px 18px;
+
+    background: #151b20;
+    border: 1px solid #5c6870;
+
+    color: #cbd2d6;
+    text-decoration: none;
+
+    box-shadow: 4px 4px 0 #020304;
+}
+
+.signal4-button:hover {
+    background: #20272c;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #020304;
+}
+
+
+/* =========================
+   ANSWER STATES
+========================= */
+
+.correct {
+    color: #70c995 !important;
+    border-color: #3d7654 !important;
+}
+
+.wrong {
+    color: #d36b6b !important;
+    border-color: #783f3f !important;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    body {
+        padding: 15px 10px;
+    }
+
+    .signal-03 {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .signal-03 h1 {
+        font-size: 27px;
+    }
+
+    .signal-box {
+        padding: 17px;
+    }
+
+    .game-area,
+    .mini-stage,
+    #location-area {
+        padding: 17px;
+    }
+
+    .game-stats {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    #game-board {
+        height: 300px;
+    }
+
+    #memory-board {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .memory-card {
+        min-height: 60px;
+    }
+
+    .signal4-button {
+        width: 100%;
+        text-align: center;
+    }
+}
