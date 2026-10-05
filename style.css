@@ -1,10 +1,5 @@
-.signal4-reveal {
-    display: none;
-}
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 html {
@@ -12,1548 +7,488 @@ html {
 }
 
 body {
+    margin: 0;
     min-height: 100vh;
-    padding: 20px;
-
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(39, 70, 91, 0.18),
-            transparent 42%
-        ),
-        linear-gradient(
-            180deg,
-            #070c11 0%,
-            #05090d 55%,
-            #030609 100%
-        );
-
-    color: #d9e2e8;
-    font-family: Arial, sans-serif;
+    background: #080b0f;
+    color: #c8d0d8;
+    font-family: "Courier New", monospace;
 }
 
-body::before {
-    content: "";
-
-    position: fixed;
-    inset: 0;
-
-    pointer-events: none;
-
-    background:
-        repeating-linear-gradient(
-            0deg,
-            transparent 0,
-            transparent 3px,
-            rgba(255, 255, 255, 0.014) 4px
-        );
-
-    z-index: 50;
-}
-
-
-/* COMMON */
+/* -------------------------
+   GENERAL
+------------------------- */
 
 button,
 input {
-    font-family: inherit;
+    font: inherit;
 }
 
 button {
     cursor: pointer;
 }
 
-button:disabled {
-    opacity: 0.45;
-    cursor: default;
+a {
+    color: #aebdcc;
 }
 
-button:active {
-    transform: translateY(1px);
-}
-
-
-/* SIGNAL 01 */
+/* -------------------------
+   SIGNAL 01
+------------------------- */
 
 .terminal {
-    position: relative;
-
-    width: min(850px, 100%);
-    min-height: 0;
-
-    margin: 30px auto;
-
-    padding: 38px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(12, 25, 35, 0.98),
-            rgba(6, 13, 19, 0.98)
-        );
-
-    border: 1px solid #294250;
-    border-radius: 7px;
-
-    box-shadow:
-        0 18px 45px rgba(0, 0, 0, 0.4),
-        inset 0 0 35px rgba(50, 100, 125, 0.025);
-}
-
-.terminal::before {
-    content: "SIGNAL 01 // INCOMING";
-
-    position: absolute;
-
-    top: -8px;
-    left: 22px;
-
-    padding: 2px 9px;
-
-    background: #071018;
-
-    color: #597483;
-
-    font-family: monospace;
-    font-size: 8px;
-    letter-spacing: 2px;
+    width: 90%;
+    max-width: 850px;
+    margin: 60px auto;
+    padding: 35px;
+    border: 1px solid #29323b;
+    background: #0c1116;
+    box-shadow: 8px 8px 0 #030405;
 }
 
 .system {
-    color: #657f8d;
-
-    font-family: monospace;
-    font-size: 11px;
-
-    letter-spacing: 2px;
-}
-
-.terminal h1 {
-    margin-top: 28px;
-
-    color: #e6eef2;
-
-    font-size: clamp(44px, 7vw, 60px);
-    letter-spacing: 7px;
+    color: #71808e;
+    font-size: 13px;
+    margin-bottom: 18px;
 }
 
 .creator {
-    margin-top: 9px;
+    color: #8e9aa6;
+    margin-bottom: 35px;
+}
 
-    color: #6b8490;
-
-    font-family: monospace;
-    font-size: 13px;
+.creator u {
+    color: #d34a4a;
 }
 
 .signal {
-    position: relative;
-
-    margin-top: 28px;
-
-    padding: 30px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #0b1821,
-            #081118
-        );
-
-    border: 1px solid #2d4856;
-    border-left: 3px solid #587a89;
-
-    border-radius: 5px;
-
-    box-shadow:
-        inset 0 0 25px rgba(50, 100, 125, 0.035);
+    padding: 25px;
+    border-left: 3px solid #596673;
+    background: #0a0e12;
 }
 
-.signal::after {
-    content: "TRANSMISSION";
-
-    position: absolute;
-
-    top: 14px;
-    right: 18px;
-
-    color: #3d5966;
-
-    font-family: monospace;
-    font-size: 8px;
-    letter-spacing: 2px;
-}
-
-.signal p {
-    margin-bottom: 10px;
-
-    color: #607a88;
-
-    font-family: monospace;
-    font-size: 10px;
-
-    letter-spacing: 3px;
-}
-
-.signal h2 {
-    color: #c8dce5;
-
-    font-family: monospace;
-    font-size: 27px;
-
-    letter-spacing: 5px;
+.signal h1 {
+    margin-top: 0;
+    color: #e0e5e9;
 }
 
 .clue {
-    margin-top: 25px;
-
-    color: #9aadb7;
-
-    font-family: monospace;
-    font-size: 13px;
-
-    line-height: 1.8;
+    margin: 25px 0;
+    padding: 15px;
+    border: 1px solid #283039;
+    background: #0d1318;
+    color: #9ca8b3;
 }
 
 .terminal input {
-    margin-top: 22px;
-
-    width: 68%;
-
-    padding: 14px 15px;
-
-    background: #050b10;
-
-    border: 1px solid #2e4855;
-    border-radius: 4px;
-
-    color: #e4edf1;
-
+    width: 100%;
+    padding: 13px;
+    margin: 10px 0;
     outline: none;
+    border: 1px solid #34404b;
+    background: #070a0d;
+    color: #d7dde2;
 }
 
 .terminal input:focus {
-    border-color: #6c8b9a;
-
-    box-shadow:
-        0 0 14px rgba(70, 120, 145, 0.1);
+    border-color: #7b8792;
 }
 
-.terminal input::placeholder {
-    color: #506773;
+.terminal button,
+.signal button {
+    padding: 11px 20px;
+    border: 1px solid #66737f;
+    background: #151b21;
+    color: #dce2e7;
+    box-shadow: 4px 4px 0 #020304;
 }
 
-.terminal button {
-    margin-left: 7px;
-
-    padding: 14px 21px;
-
-    background: #13232d;
-
-    border: 1px solid #466270;
-    border-radius: 4px;
-
-    color: #d0dfe5;
-
-    font-family: monospace;
-    font-size: 10px;
-
-    letter-spacing: 2px;
-
-    transition: 0.2s;
-}
-
-.terminal button:hover {
-    background: #1a303c;
-    border-color: #7895a2;
+.terminal button:hover,
+.signal button:hover {
+    background: #202830;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #020304;
 }
 
 #result {
     margin-top: 20px;
-
-    color: #8aa7b5;
-
-    font-family: monospace;
-    font-size: 12px;
-
-    line-height: 1.6;
-
-    white-space: pre-line;
+    color: #d34a4a;
 }
 
 .hint-info {
     margin-top: 15px;
-
-    color: #536d79;
-
-    font-family: monospace;
-    font-size: 9px;
-
-    letter-spacing: 2px;
+    color: #697782;
+    font-size: 13px;
 }
 
 #continueBtn {
-    display: none;
+    margin-top: 25px;
+    border-color: #9b4444;
+    color: #d96b6b;
 }
 
-
-/* SIGNAL 02 */
+/* -------------------------
+   SIGNAL 02
+------------------------- */
 
 .signal-02 {
-    position: relative;
-
-    width: min(760px, 100%);
-
-    margin: 30px auto;
-
+    width: 90%;
+    max-width: 900px;
+    margin: 70px auto;
     padding: 40px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #12161a,
-            #0b1014
-        );
-
-    border: 1px solid #3a464c;
-    border-radius: 7px;
-
-    box-shadow:
-        0 18px 45px rgba(0, 0, 0, 0.45),
-        inset 0 0 35px rgba(170, 180, 185, 0.018);
-}
-
-.signal-02::before {
-    content: "SIGNAL 02 // RECOVERED";
-
-    position: absolute;
-
-    top: -8px;
-    left: 22px;
-
-    padding: 2px 9px;
-
-    background: #0b1014;
-
-    color: #707e85;
-
-    font-family: monospace;
-    font-size: 8px;
-
-    letter-spacing: 2px;
-}
-
-.signal-02::after {
-    content: "ARCHIVE // 02";
-
-    position: absolute;
-
-    top: 20px;
-    right: 22px;
-
-    color: #4a565c;
-
-    font-family: monospace;
-    font-size: 8px;
-
-    letter-spacing: 2px;
-}
-
-.signal-02 .small-text {
-    margin-bottom: 25px;
-
-    color: #707e85;
-
-    font-family: monospace;
-    font-size: 10px;
-
-    letter-spacing: 4px;
+    border: 1px solid #29333d;
+    background: #0b1015;
+    box-shadow: 10px 10px 0 #030405;
 }
 
 .signal-02 h1 {
-    margin: 0 0 30px;
-
-    color: #e5eaed;
-
-    font-size: clamp(38px, 6vw, 50px);
-
-    letter-spacing: 4px;
+    color: #d8dee3;
 }
 
-.signal-02 .message {
-    margin-bottom: 8px;
-
-    color: #a4adb2;
-
-    font-family: monospace;
-    font-size: 14px;
-
-    line-height: 1.8;
+.small-text {
+    color: #697681;
+    font-size: 12px;
 }
 
-.signal-02 .message b {
-    color: #dce4e7;
+.message {
+    margin: 35px 0;
+    padding: 25px;
+    background: #080c10;
+    border-top: 1px solid #36414b;
+    border-bottom: 1px solid #36414b;
+    color: #aeb8c1;
 }
 
 .signal-02 button {
-    margin-top: 27px;
-    margin-left: 0;
-
-    padding: 13px 27px;
-
-    background: #181e22;
-
-    border: 1px solid #59666d;
-    border-radius: 4px;
-
-    color: #d7dfe2;
-
-    font-family: monospace;
-    font-size: 10px;
-
-    letter-spacing: 3px;
-
-    transition: 0.2s;
+    padding: 12px 24px;
+    background: #12181e;
+    border: 1px solid #68747f;
+    color: #d4dbe0;
+    box-shadow: 4px 4px 0 #020304;
 }
 
 .signal-02 button:hover {
-    background: #252d32;
-    border-color: #a0abb0;
+    background: #1c242c;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #020304;
 }
 
-#source-area,
-#number-area,
-#next-area {
-    display: none;
-}
-
-
-/* SIGNAL 03 */
+/* -------------------------
+   SIGNAL 03
+------------------------- */
 
 .signal-03 {
-    position: relative;
-
-    width: 100%;
-    min-height: 100vh;
-
-    padding: 35px 7vw 100px;
-
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle at 82% 12%,
-            rgba(38, 73, 94, 0.2),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 12% 75%,
-            rgba(23, 48, 65, 0.16),
-            transparent 30%
-        ),
-        linear-gradient(
-            145deg,
-            #060a0e,
-            #04070a
-        );
-
-    color: #d8e0e6;
-}
-
-.signal-03::before {
-    content: "";
-
-    position: fixed;
-    inset: 0;
-
-    pointer-events: none;
-
-    background-image:
-        linear-gradient(
-            rgba(140, 175, 190, 0.035) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(140, 175, 190, 0.035) 1px,
-            transparent 1px
-        );
-
-    background-size: 50px 50px;
-}
-
-.signal-03::after {
-    content: "03 // UNKNOWN LOCATION // TRACKING ACTIVE";
-
-    position: absolute;
-
-    top: 20px;
-    right: 7vw;
-
-    color: #4e6876;
-
-    font-family: monospace;
-    font-size: 9px;
-
-    letter-spacing: 3px;
-}
-
-.signal-03 > * {
-    position: relative;
-    z-index: 2;
+    width: 92%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #090d11;
+    border: 1px solid #28313a;
+    box-shadow: 12px 12px 0 #020304;
 }
 
 .signal-03 h1 {
-    max-width: 900px;
-
-    margin-top: 95px;
-
-    color: #e9eef1;
-
-    font-size: clamp(58px, 10vw, 120px);
-
-    line-height: 0.83;
-
-    letter-spacing: -6px;
+    color: #dce2e6;
+    font-size: 34px;
 }
 
-.signal-03 .small-text {
-    color: #607987;
-
-    font-family: monospace;
-    font-size: 10px;
-
-    letter-spacing: 4px;
-
-    text-transform: uppercase;
+.signal-box {
+    margin: 30px 0;
+    padding: 25px;
+    border: 1px solid #303b45;
+    background: #0d1318;
+    overflow-x: auto;
 }
 
-.signal-03 .message {
-    max-width: 610px;
-
-    margin-top: 20px;
-
-    color: #81919b;
-
-    font-family: monospace;
-    font-size: 13px;
-
-    line-height: 1.8;
+.signal-box h2 {
+    color: #b8c2ca;
+    font-size: 20px;
 }
 
-.signal-03 .signal-box {
-    position: relative;
-
-    width: min(700px, 100%);
-
-    margin-top: 75px;
-
-    padding: 42px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(11, 28, 41, 0.9),
-            rgba(6, 13, 19, 0.94)
-        );
-
-    border: 1px solid #2c4350;
-
-    box-shadow:
-        16px 16px 0 rgba(15, 25, 32, 0.65),
-        0 0 35px rgba(40, 90, 115, 0.05);
-}
-
-.signal-03 .signal-box::before {
-    content: "+";
-
-    position: absolute;
-
-    top: -9px;
-    left: -9px;
-
-    color: #718b98;
-
-    font-size: 16px;
-}
-
-.signal-03 .signal-box::after {
-    content: "SIGNAL_03";
-
-    position: absolute;
-
-    right: 18px;
-    bottom: 12px;
-
-    color: #3e5662;
-
-    font-family: monospace;
-    font-size: 8px;
-
-    letter-spacing: 3px;
-}
-
-.signal-03 .riddle {
-    margin: 32px 0;
-
-    color: #d0d9de;
-
-    font-family: monospace;
-    font-size: 18px;
-
-    line-height: 1.9;
-}
-
-.signal-03 input {
+.signal-box input {
     width: 100%;
-
-    margin-top: 20px;
-
-    padding: 16px 0;
-
-    background: transparent;
-
-    border: none;
-    border-bottom: 1px solid #425865;
-
-    border-radius: 0;
-
-    color: #e4edf1;
-
-    font-family: monospace;
-
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #394550;
     outline: none;
+    background: #070a0d;
+    color: #dce1e5;
 }
 
-.signal-03 input:focus {
-    border-bottom-color: #9ab0bb;
+.signal-box input:focus {
+    border-color: #7d8994;
 }
 
-.signal-03 button {
-    margin-top: 20px;
-    margin-left: 0;
-
-    padding: 13px 27px;
-
-    background: transparent;
-
-    border: 1px solid #536e7b;
-    border-radius: 0;
-
-    color: #c0d0d7;
-
-    font-family: monospace;
-    font-size: 10px;
-
-    letter-spacing: 3px;
-
-    transition: 0.2s;
+.signal-box button {
+    padding: 10px 18px;
+    background: #171e24;
+    color: #cfd6db;
+    border: 1px solid #5b6873;
+    box-shadow: 4px 4px 0 #020304;
 }
 
-.signal-03 button:hover {
-    background: #16242d;
-    border-color: #91aab6;
+.signal-box button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #020304;
 }
 
-.signal-03 #riddleResult,
-.signal-03 #equationResult,
-.signal-03 #equation2Result,
-.signal-03 #cityResult,
-.signal-03 #locationResult {
-    margin-top: 20px;
-
-    color: #718996;
-
-    font-family: monospace;
-    font-size: 11px;
-
-    letter-spacing: 1px;
-}
-
-.signal-03 .hint-info {
-    margin-top: 30px;
-
-    color: #526d7a;
-
-    font-family: monospace;
-    font-size: 9px;
-
-    letter-spacing: 3px;
-}
-
-
-/* SIGNAL 03 SECTIONS */
+/* -------------------------
+   EQUATIONS
+------------------------- */
 
 #equation-area,
 #equation2-area,
-#location-area,
-.mini-stage,
-#memory-stage,
+#location-area {
+    margin-top: 25px;
+}
+
+.mini-stage {
+    padding: 20px;
+    margin: 20px 0;
+    border-left: 2px solid #4d5964;
+    background: #0b1015;
+}
+
+#memory-stage {
+    margin-top: 30px;
+}
+
 #signal03-final {
-    position: relative;
-
-    width: min(850px, 100%);
-
-    margin-top: 105px;
-
-    padding-top: 45px;
-
-    border-top: 1px solid #263943;
+    margin-top: 40px;
+    padding: 30px;
+    border: 1px solid #37424c;
+    background: #0a0e12;
 }
 
-#equation-area::before,
-#equation2-area::before,
-#location-area::before,
-.mini-stage::before,
-#memory-stage::before,
-#signal03-final::before {
-    content: "SIGNAL DATA";
-
-    position: absolute;
-
-    top: -7px;
-    left: 0;
-
-    padding-right: 12px;
-
-    background: #05080b;
-
-    color: #506a76;
-
-    font-family: monospace;
-    font-size: 8px;
-
-    letter-spacing: 3px;
-}
-
-.signal-03 .equation {
-    margin: 40px 0;
-
-    color: #dce7ec;
-
-    font-family: monospace;
-
-    font-size: clamp(30px, 6vw, 65px);
-
-    letter-spacing: 5px;
-}
-
-
-/* LOCATION */
+/* -------------------------
+   LOCATION
+------------------------- */
 
 #location-area {
-    min-height: 300px;
-
-    padding: 45px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(17, 34, 45, 0.82),
-            rgba(5, 10, 14, 0.92)
-        );
-
-    border: 1px solid #2b4452;
-
-    box-shadow:
-        12px 12px 0 rgba(10, 18, 23, 0.7);
+    padding: 25px;
+    background: #0b1014;
+    border: 1px solid #2d3740;
 }
 
-#location-area .message:nth-child(2) {
-    margin: 40px 0;
-
-    color: #e3ebef;
-
-    font-family: monospace;
-
-    font-size: clamp(40px, 8vw, 90px);
-
-    letter-spacing: 7px;
+#location-area input {
+    padding: 11px;
+    background: #070a0d;
+    color: #dce2e6;
+    border: 1px solid #3a4650;
+    outline: none;
 }
 
+/* -------------------------
+   SHIBUYA GAME
+------------------------- */
 
-/* SHIBUYA GAME */
-
-.game-area {
-    width: min(850px, 100%);
-
-    margin-top: 105px;
-}
-
-.game-area::before {
-    content: "[ CONNECTION TEST // SHIBUYA ]";
-
-    display: block;
-
-    margin-bottom: 20px;
-
-    color: #607b87;
-
-    font-family: monospace;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-}
-
-.game-title {
-    display: inline-block;
-
-    padding: 8px 12px;
-
-    background: #101a20;
-
-    border-left: 3px solid #718b96;
-
-    color: #dce6ea;
-
-    font-family: monospace;
-
-    font-size: 24px;
-
-    letter-spacing: 3px;
-}
-
-.game-info {
-    max-width: 650px;
-
-    margin: 15px 0;
-
-    color: #667d87;
-
-    font-family: monospace;
-
-    font-size: 10px;
-
-    line-height: 1.8;
-}
-
-.game-stats {
-    display: inline-flex;
-
-    gap: 25px;
-
-    margin: 10px 0 18px;
-
-    padding: 7px 10px;
-
-    background: #05090c;
-
-    border: 1px solid #263b45;
-
-    color: #637a85;
-
-    font-family: monospace;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-}
-
-.game-stats b {
-    color: #d4e0e5;
+#game-area {
+    margin-top: 30px;
 }
 
 #game-board {
     position: relative;
-
     width: 100%;
-    max-width: 760px;
-
-    height: 420px;
-
+    max-width: 600px;
+    height: 350px;
+    margin: 20px auto;
     overflow: hidden;
-
-    background:
-        linear-gradient(
-            180deg,
-            #080e12,
-            #05090c
-        );
-
-    border: 1px solid #415964;
-
-    box-shadow:
-        8px 8px 0 #020304;
-}
-
-#game-board::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background-image:
-        linear-gradient(
-            #1d3039 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            #1d3039 1px,
-            transparent 1px
-        );
-
-    background-size: 25px 25px;
-
-    opacity: 0.35;
-}
-
-#game-board::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-
-    top: 125px;
-
-    height: 150px;
-
-    background:
-        repeating-linear-gradient(
-            0deg,
-            transparent 0,
-            transparent 12px,
-            rgba(190, 205, 210, 0.08) 12px,
-            rgba(190, 205, 210, 0.08) 22px
-        );
-
-    border-top: 1px solid #263d47;
-    border-bottom: 1px solid #263d47;
-
-    pointer-events: none;
-}
-
-.road-line {
-    position: absolute;
-
-    left: 0;
-
-    width: 100%;
-    height: 1px;
-
-    background: #55707b;
-
-    opacity: 0.25;
-}
-
-.line-1 {
-    top: 33%;
-}
-
-.line-2 {
-    top: 66%;
+    background: #070a0d;
+    border: 1px solid #3c4852;
 }
 
 #player {
     position: absolute;
-
-    left: 20px;
-    bottom: 20px;
-
-    width: 18px;
-    height: 18px;
-
-    background: #e4edf0;
-
-    border: 2px solid #7c96a0;
-
-    z-index: 20;
-
-    box-shadow:
-        0 0 10px rgba(190, 215, 225, 0.45);
-
-    transform: rotate(45deg);
-}
-
-#player::after {
-    content: "";
-
-    position: absolute;
-
-    width: 5px;
-    height: 5px;
-
-    top: 4px;
-    left: 4px;
-
-    background: #536b76;
+    width: 20px;
+    height: 20px;
+    background: #c5cdd3;
 }
 
 #finish {
     position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    height: 42px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background: #0e171c;
-
-    border-bottom: 2px solid #536c77;
-
-    color: #91a7b0;
-
-    font-family: monospace;
-
-    font-size: 10px;
-
-    letter-spacing: 4px;
-
-    z-index: 6;
+    background: #9e4444;
 }
 
-#finish::before {
-    content: "↑";
-
+.obstacle {
     position: absolute;
-
-    left: 20px;
-    top: 10px;
-
-    font-size: 15px;
+    background: #303a43;
 }
 
-.obstacle,
-.moving-obstacle {
-    position: absolute;
-
-    width: 42px;
-    height: 24px;
-
-    background: #10191e;
-
-    border: 1px solid #657d87;
-
-    z-index: 15;
+#game-message {
+    margin: 15px 0;
+    color: #8d9aa5;
 }
 
-.obstacle::before,
-.moving-obstacle::before {
-    content: "///";
-
-    position: absolute;
-
-    left: 6px;
-    top: 3px;
-
-    color: #667f89;
-
-    font-family: monospace;
-
-    font-size: 11px;
+#start-game {
+    padding: 10px 20px;
+    border: 1px solid #66727d;
+    background: #141a20;
+    color: #d4dbe0;
 }
 
-#gameMessage {
-    min-height: 18px;
-
-    margin-top: 20px;
-
-    color: #8199a3;
-
-    font-family: monospace;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
+#start-game:hover {
+    background: #202830;
 }
 
-#startGameBtn {
-    margin-top: 15px;
+/* -------------------------
+   OTHER STAGES
+------------------------- */
 
-    padding: 11px 24px;
-
-    background: #0b1318;
-
-    border: 1px solid #536d78;
-
-    color: #c7d5da;
-
-    font-family: monospace;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-}
-
-
-/* OTHER STAGES */
-
-.mini-stage {
-    min-height: 300px;
-}
-
-.mini-stage h2 {
-    margin-top: 25px;
-
-    color: #dce7ed;
-
-    font-family: monospace;
-
-    font-size: clamp(28px, 5vw, 48px);
-
-    letter-spacing: 3px;
-}
-
-.stage-text {
-    max-width: 650px;
-
-    margin-top: 15px;
-
-    color: #788c96;
-
-    font-family: monospace;
-
-    font-size: 11px;
-
-    line-height: 1.8;
+#other-stage {
+    margin-top: 35px;
 }
 
 .puzzle-box {
-    width: min(650px, 100%);
-
-    margin-top: 40px;
-
-    padding: 32px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(10, 20, 28, 0.9),
-            rgba(5, 10, 14, 0.95)
-        );
-
-    border: 1px solid #2c424d;
-
-    box-shadow:
-        10px 10px 0 rgba(17, 28, 36, 0.5);
+    padding: 25px;
+    margin: 20px 0;
+    background: #0c1116;
+    border: 1px solid #303a43;
 }
 
 .jumble-words {
-    margin: 32px 0;
-
-    padding: 20px;
-
-    background: #060a0d;
-
-    border: 1px solid #263944;
-
-    color: #d4e0e5;
-
-    font-family: monospace;
-
-    font-size: 19px;
-
-    letter-spacing: 3px;
-
-    text-align: center;
-}
-
-.attempt-info {
-    margin-top: 16px;
-
-    color: #536d78;
-
-    font-family: monospace;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-}
-
-.attempt-info b {
-    color: #c8d6dc;
-}
-
-
-/* HIDDEN STAGE */
-
-#hidden-stage {
-    min-height: 350px;
-}
-
-#hidden-message-box {
-    position: relative;
-
-    width: min(600px, 100%);
-
-    min-height: 140px;
-
-    margin-top: 45px;
-
     display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background: #05090c;
-
-    border: 1px solid #263b45;
-
-    overflow: hidden;
-}
-
-#hidden-message-box::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 5px,
-            rgba(170, 200, 210, 0.025) 6px
-        );
-}
-
-#hidden-message {
-    margin: 0;
-
-    color: #91a7b0;
-
-    font-family: monospace;
-
-    font-size: 18px;
-
-    letter-spacing: 4px;
-
-    text-align: center;
-
-    opacity: 0;
-
-    transition: opacity 0.2s;
-}
-
-#hiddenContinueBtn {
-    margin-top: 25px;
-}
-
-
-/* MEMORY */
-
-#memory-stage {
-    min-height: 400px;
-}
-
-.memory-stats {
-    margin-top: 22px;
-
-    color: #607887;
-
-    font-family: monospace;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-}
-
-.memory-stats b {
-    color: #d7e3e8;
-}
-
-#memory-board {
-    width: min(560px, 100%);
-
-    margin-top: 32px;
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
+    flex-wrap: wrap;
     gap: 10px;
 }
 
+.jumble-words span {
+    padding: 8px 12px;
+    border: 1px solid #46515b;
+    background: #11171c;
+}
+
+.attempt-info {
+    margin-top: 12px;
+    color: #687580;
+    font-size: 13px;
+}
+
+/* -------------------------
+   HIDDEN STAGE
+------------------------- */
+
+#hidden-stage {
+    padding: 25px;
+    background: #080c10;
+    border: 1px dashed #3b4650;
+}
+
+#hidden-stage button {
+    padding: 10px 18px;
+    background: #12181d;
+    color: #cbd3d8;
+    border: 1px solid #596670;
+}
+
+/* -------------------------
+   MEMORY GAME
+------------------------- */
+
+#memory-stage {
+    padding: 25px;
+    background: #0b1015;
+    border: 1px solid #303a44;
+}
+
+#memory-game {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    max-width: 450px;
+    margin: 20px auto;
+}
+
 .memory-card {
-    width: 100%;
-
-    aspect-ratio: 1;
-
-    margin: 0;
-    padding: 0;
-
-    background: #0a1218;
-
-    border: 1px solid #38515e;
-
-    border-radius: 0;
-
-    color: #9db0b9;
-
-    font-family: monospace;
-
-    font-size: 25px;
-
-    transition: 0.2s;
+    min-height: 70px;
+    border: 1px solid #46515b;
+    background: #12181e;
+    color: #cbd2d7;
+    cursor: pointer;
 }
 
 .memory-card:hover {
-    background: #14232c;
-
-    border-color: #78909b;
+    background: #1b232a;
 }
 
-.memory-card.flipped {
-    background: #172831;
-
-    border-color: #8198a2;
-
-    color: #dce7ed;
-}
-
-.memory-card.matched {
-    background: #0d1b21;
-
-    border-color: #536d78;
-
-    color: #9fb4be;
-
-    cursor: default;
-}
-
-#memoryMessage {
-    min-height: 20px;
-
-    margin-top: 20px;
-
-    color: #7f98a3;
-
-    font-family: monospace;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-}
-
-
-/* FINAL */
+/* -------------------------
+   FINAL
+------------------------- */
 
 #signal03-final {
-    min-height: 300px;
-
-    padding-bottom: 80px;
+    text-align: center;
 }
 
-.final-text {
-    max-width: 650px;
-
-    margin-top: 18px;
-
-    color: #82919b;
-
-    font-family: monospace;
-
-    font-size: 12px;
-
-    line-height: 1.8;
+#signal03-final button {
+    padding: 12px 25px;
+    background: #151b21;
+    color: #d5dce1;
+    border: 1px solid #68747f;
+    box-shadow: 5px 5px 0 #020304;
 }
 
-.final-box {
-    width: min(650px, 100%);
-
-    margin-top: 45px;
-
-    padding: 38px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(15, 29, 38, 0.92),
-            rgba(5, 10, 14, 0.96)
-        );
-
-    border: 1px solid #425b67;
-
-    box-shadow:
-        12px 12px 0 rgba(18, 29, 38, 0.5);
+#signal03-final button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #020304;
 }
 
-.final-status {
-    margin-top: 28px;
-
-    color: #dce7ed;
-
-    font-family: monospace;
-
-    font-size: clamp(28px, 5vw, 48px);
-
-    letter-spacing: 5px;
-}
-
-.final-subtext {
-    margin-top: 18px;
-
-    color: #617984;
-
-    font-family: monospace;
-
-    font-size: 9px;
-
-    letter-spacing: 3px;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-    body {
-        padding: 10px;
-    }
-
-    .terminal {
-        margin: 15px auto;
-        padding: 28px 20px;
-    }
-
-    .terminal h1 {
-        font-size: 42px;
-        letter-spacing: 4px;
-    }
-
-    .signal {
-        padding: 25px 20px;
-    }
-
-    .terminal input {
-        width: 100%;
-    }
-
-    .terminal button {
-        width: 100%;
-
-        margin-left: 0;
-        margin-top: 10px;
-    }
-
-    .signal-02 {
-        margin: 15px auto;
-        padding: 30px 22px;
-    }
-
-    .signal-02 h1 {
-        font-size: 38px;
-    }
-
-    .signal-02::after {
-        display: none;
-    }
-
-    .signal-03 {
-        padding: 25px 18px 70px;
-    }
-
-    .signal-03::after {
-        display: none;
-    }
-
-    .signal-03 h1 {
-        margin-top: 70px;
-
-        font-size: 54px;
-
-        letter-spacing: -3px;
-    }
-
-    .signal-03 .signal-box {
-        margin-top: 55px;
-
-        padding: 28px 21px;
-
-        box-shadow:
-            9px 9px 0 rgba(15, 25, 32, 0.7);
-    }
-
-    .signal-03 .riddle {
-        font-size: 16px;
-    }
-
-    .signal-03 button {
-        width: 100%;
-    }
-
-    #equation-area,
-    #equation2-area,
-    #location-area,
-    .mini-stage,
-    #memory-stage,
-    #signal03-final {
-        margin-top: 80px;
-    }
-
-    #location-area {
-        padding: 30px 20px;
-    }
-
-    #location-area .message:nth-child(2) {
-        font-size: 38px;
-        letter-spacing: 4px;
-    }
-
-    .game-area {
-        margin-top: 85px;
-    }
-
-    .game-stats {
-        width: 100%;
-
-        justify-content: space-between;
-    }
-
-    #game-board {
-        height: 420px;
-    }
-
-    .puzzle-box {
-        padding: 25px 20px;
-    }
-
-    .jumble-words {
-        font-size: 15px;
-        line-height: 1.7;
-    }
-
-    #memory-board {
-        grid-template-columns: repeat(2, 1fr);
-
-        max-width: 330px;
-    }
-
-    .final-box {
-        padding: 28px 22px;
-    }
-}
+/* -------------------------
+   SIGNAL 04
+------------------------- */
 
 .signal4-reveal {
     display: none;
-    margin-top: 35px;
-    padding: 20px;
-    border-top: 1px solid #263746;
-    line-height: 1.8;
 }
 
-.signal4-reveal .dim {
-    color: #526575;
+#signal04-reveal {
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 850px;
+    background: #0a0f14;
+    border: 1px solid #37434d;
+    box-shadow: 9px 9px 0 #020304;
 }
 
-.signal4-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 18px;
-    border: 1px solid #344957;
-    background: #0c1721;
-    color: #9eb1bf;
-    text-decoration: none;
-    font-family: "Courier New", monospace;
+#signal04-reveal button {
+    padding: 11px 22px;
+    background: #161d23;
+    border: 1px solid #687580;
+    color: #d6dde2;
+}
+
+#signal04-reveal button:hover {
+    background: #202830;
+}
+
+/* -------------------------
+   MOBILE
+------------------------- */
+
+@media (max-width: 650px) {
+
+    .terminal,
+    .signal-02,
+    .signal-03 {
+        width: 94%;
+        margin: 30px auto;
+        padding: 20px;
+    }
+
+    .signal-03 h1 {
+        font-size: 26px;
+    }
+
+    .signal {
+        padding: 18px;
+    }
+
+    #game-board {
+        height: 300px;
+    }
+
+    #memory-game {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    button {
+        max-width: 100%;
+    }
 }
