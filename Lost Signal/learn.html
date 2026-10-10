@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>LEARN // SIGNAL 02</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <main class="signal signal-02">
+
+        <p class="small-text">
+            UNKNOWN CHANNEL // 02
+        </p>
+
+
+        <h1>
+            LOOK CLOSER.
+        </h1>
+
+
+        <p class="message">
+            You thought Signal 01 was finished.
+        </p>
+
+
+        <p class="message">
+            It wasn't.
+        </p>
+
+
+        <p class="message">
+            The numbers you found earlier were not only an answer.
+        </p>
+
+
+        <p class="message">
+            They were a <b>connection.</b>
+        </p>
+
+
+        <p class="message">
+            Find it.
+        </p>
+
+
+        <!-- SIGNAL 02 GRID -->
+
+        <div class="grid">
+
+            <button class="grid-box">1</button>
+            <button class="grid-box">2</button>
+            <button class="grid-box">3</button>
+            <button class="grid-box">4</button>
+            <button class="grid-box">5</button>
+            <button class="grid-box">6</button>
+            <button class="grid-box">7</button>
+            <button class="grid-box">8</button>
+            <button class="grid-box">9</button>
+            <button class="grid-box">10</button>
+            <button class="grid-box">11</button>
+            <button class="grid-box">12</button>
+            <button class="grid-box">13</button>
+            <button class="grid-box">14</button>
+            <button class="grid-box">15</button>
+            <button class="grid-box">16</button>
+            <button class="grid-box">17</button>
+            <button class="grid-box">18</button>
+            <button class="grid-box">19</button>
+            <button class="grid-box">20</button>
+            <button class="grid-box">21</button>
+            <button class="grid-box">22</button>
+            <button class="grid-box">23</button>
+            <button class="grid-box">24</button>
+
+        </div>
+
+
+        <p class="hint-info">
+             SIGNAL 01 has something to do with this grid<b>!</b>
+        </p>
+
+
+        <!-- MAIN RESULT -->
+
+        <p id="result"></p>
+
+
+        <!-- TRANSLATION ANSWER -->
+
+        <div
+            id="answer-area"
+            style="display: none;"
+        >
+
+            <p class="message">
+                The message pointed somewhere.<br>
+                Not a place on a map - a place you can reach.
+            </p>
+
+            <p class="message">
+                What palce did it tell u to go?<br>
+                <b>ONE WORD ONLY.</b>
+            </p>
+
+
+            <input
+                type="text"
+                id="learnAnswer"
+                placeholder="ENTER ANSWER"
+                autocomplete="off"
+            >
+
+
+            <button onclick="checkLearnAnswer()">
+                SUBMIT
+            </button>
+
+        </div>
+
+
+        <!-- SIGNAL SOURCE -->
+
+        <div
+            id="source-area"
+            style="display: none;"
+        >
+
+            <p
+                class="message"
+                id="sourceMessage"
+            >
+                The signal source has been located.
+            </p>
+
+
+            <button onclick="goToWebsite()">
+                OPEN SIGNAL SOURCE
+            </button>
+
+        </div>
+
+
+        <!-- INSTAGRAM NUMBER -->
+
+        <div
+            id="number-area"
+            style="display: none;"
+        >
+
+            <p class="message">
+                You found the source.
+            </p>
+
+
+            <p class="message">
+                Now find the number hidden in the Instagram ID.
+            </p>
+
+
+            <input
+                type="text"
+                id="instagramNumber"
+                placeholder="ENTER NUMBER"
+                autocomplete="off"
+            >
+
+
+            <button onclick="checkInstagramNumber()">
+                SUBMIT
+            </button>
+
+        </div>
+
+
+        <!-- SIGNAL 03 UNLOCK -->
+
+        <div
+            id="next-area"
+            style="display: none;"
+        >
+
+            <p
+                class="message"
+                id="nextMessage"
+            ></p>
+
+
+            <button onclick="goToSignal03()">
+                CONTINUE
+            </button>
+
+        </div>
+
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

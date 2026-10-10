@@ -1,0 +1,1087 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            180deg,
+            #050708 0%,
+            #020303 100%
+        );
+
+    color: #c9d3d8;
+
+    font-family:
+        "Courier New",
+        Courier,
+        monospace;
+
+    padding: 40px 20px;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   TERMINAL
+========================= */
+
+.terminal,
+.signal {
+    width: min(900px, 100%);
+    margin: 0 auto;
+
+    padding: 45px;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b1013,
+            #050708
+        );
+
+    border: 1px solid #273238;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.65),
+        inset 0 0 50px rgba(90,120,130,0.025);
+}
+
+.terminal::before,
+.signal::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(255,255,255,0.01) 4px
+        );
+}
+
+.system,
+.small-text,
+.hint-info,
+.creator,
+.attempt-info {
+    color: #66777f;
+
+    font-size: 12px;
+
+    letter-spacing: 1.5px;
+
+    line-height: 1.8;
+}
+
+.creator {
+    margin-top: 8px;
+}
+
+.creator b {
+    color: #a9bac1;
+}
+
+h1 {
+    margin-top: 28px;
+    margin-bottom: 12px;
+
+    color: #e6edf0;
+
+    font-size: clamp(34px, 7vw, 62px);
+
+    letter-spacing: 7px;
+
+    line-height: 1;
+}
+
+h2 {
+    color: #dce5e9;
+    letter-spacing: 3px;
+}
+
+.message,
+.clue,
+.stage-text,
+.final-text,
+.final-subtext,
+.game-info {
+    color: #85949b;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+.message {
+    margin-top: 15px;
+}
+
+b {
+    color: #dce6ea;
+}
+
+
+/* =========================
+   SIGNAL 01
+========================= */
+
+.signal {
+    margin-top: 20px;
+}
+
+.signal > p:first-child {
+    color: #63767e;
+
+    letter-spacing: 3px;
+}
+
+.signal h2 {
+    margin-top: 18px;
+
+    padding: 22px;
+
+    color: #e7eef1;
+
+    background: #080d10;
+
+    border-left: 2px solid #516873;
+
+    font-size: clamp(22px, 5vw, 38px);
+
+    letter-spacing: 5px;
+}
+
+.clue {
+    margin-top: 28px;
+}
+
+.hint-info {
+    margin-top: 22px;
+
+    padding: 13px 16px;
+
+    background: #080d10;
+
+    border-left: 2px solid #34464e;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+input {
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 15px;
+
+    background: #030607;
+
+    color: #dce7eb;
+
+    border: 1px solid #293b43;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+}
+
+input::placeholder {
+    color: #405158;
+}
+
+input:focus {
+    border-color: #607985;
+
+    box-shadow:
+        0 0 15px rgba(80,120,135,0.08);
+}
+
+input:disabled {
+    opacity: 0.5;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button,
+.signal4-button {
+    display: inline-block;
+
+    margin-top: 14px;
+
+    padding: 12px 22px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #172229,
+            #0a1013
+        );
+
+    color: #d6e1e5;
+
+    border: 1px solid #344a55;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition:
+        0.15s ease;
+}
+
+button:hover,
+.signal4-button:hover {
+    transform: translateY(-2px);
+
+    border-color: #708995;
+
+    background:
+        linear-gradient(
+            180deg,
+            #1c2d36,
+            #0c151a
+        );
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.4);
+}
+
+button:active,
+.signal4-button:active {
+    transform: translateY(0);
+}
+
+button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   GREEN / RED RESULTS
+========================= */
+
+#result,
+#riddleResult,
+#equationResult,
+#equation2Result,
+#cityResult,
+#locationResult,
+#gameMessage,
+#jumbleResult,
+#memoryMessage,
+#gameStatus {
+    min-height: 24px;
+
+    margin-top: 18px;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    letter-spacing: 1px;
+
+    transition:
+        color 0.2s ease,
+        text-shadow 0.2s ease;
+}
+
+.success {
+    color: #5ee58b !important;
+
+    text-shadow:
+        0 0 12px rgba(94,229,139,0.25);
+}
+
+.error {
+    color: #ff5d5d !important;
+
+    text-shadow:
+        0 0 12px rgba(255,93,93,0.2);
+}
+
+
+/* =========================
+   SIGNAL 02 GRID
+========================= */
+
+.grid {
+    margin-top: 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    gap: 9px;
+}
+
+.grid-box {
+    margin: 0;
+
+    padding: 0;
+
+    width: 100%;
+
+    aspect-ratio: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #080d10;
+
+    border: 1px solid #293c45;
+
+    color: #71848c;
+
+    font-size: 12px;
+
+    transition:
+        0.15s ease;
+}
+
+.grid-box:hover {
+    transform: translateY(-2px);
+
+    color: #dce7eb;
+
+    border-color: #607985;
+
+    background: #101b21;
+}
+
+
+/* =========================
+   HIDDEN AREAS
+========================= */
+
+#answer-area,
+#source-area,
+#number-area,
+#next-area,
+#equation-area,
+#equation2-area,
+#location-area {
+    margin-top: 28px;
+}
+
+
+/* =================================================
+   SIGNAL 03
+   RAW / OLD TERMINAL STYLE
+================================================= */
+
+.signal-03 {
+    background:
+        #070909;
+
+    border-color: #202a2e;
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,0.7);
+}
+
+.signal-03 h1 {
+    color: #dce4e7;
+
+    letter-spacing: 5px;
+
+    text-shadow: none;
+}
+
+.signal-03 .message,
+.signal-03 .stage-text {
+    color: #7b898e;
+}
+
+.signal-03 .small-text {
+    color: #58676c;
+}
+
+.signal-03 .hint-info {
+    background: #050708;
+
+    border-left-color: #39464a;
+
+    color: #657277;
+}
+
+
+/* SIGNAL 03 BOX */
+
+.signal-box {
+    margin-top: 25px;
+
+    padding: 25px;
+
+    background:
+        #090d0f;
+
+    border: 1px solid #273338;
+
+    box-shadow:
+        inset 0 0 30px rgba(255,255,255,0.01);
+}
+
+.signal-box .riddle {
+    margin-top: 20px;
+
+    color: #9aa7ab;
+
+    line-height: 1.9;
+
+    font-size: 14px;
+}
+
+.signal-box .equation {
+    margin-top: 20px;
+
+    padding: 17px;
+
+    background: #050708;
+
+    border: 1px solid #263237;
+
+    color: #dbe4e7;
+
+    text-align: center;
+
+    font-size: 20px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =================================================
+   CROSSING GAME
+================================================= */
+
+.game-area {
+    margin-top: 45px;
+
+    padding: 28px;
+
+    background:
+        #080c0e;
+
+    border: 1px solid #2a393f;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.5);
+}
+
+.game-title {
+    margin-top: 14px;
+
+    color: #dfe8eb;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+}
+
+.game-info {
+    margin-top: 8px;
+}
+
+.game-stats {
+    margin-top: 22px;
+
+    padding: 13px 16px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: #040607;
+
+    border: 1px solid #26353b;
+
+    color: #64747a;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+}
+
+.game-stats b {
+    color: #dce5e8;
+}
+
+
+/* =========================
+   GAME BOARD
+========================= */
+
+#game-board {
+    width: min(620px, 100%);
+
+    height: 380px;
+
+    margin: 25px auto 0;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #15191b 0%,
+            #090c0e 100%
+        );
+
+    border: 2px solid #39484d;
+
+    box-shadow:
+        inset 0 0 50px rgba(0,0,0,0.7),
+        0 15px 50px rgba(0,0,0,0.4);
+}
+
+
+/* TOP EXIT */
+
+#finish {
+    position: absolute;
+
+    top: 10px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 145px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 25;
+
+    background:
+        #102519;
+
+    border: 1px solid #4d9468;
+
+    color: #72d894;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    box-shadow:
+        0 0 18px rgba(80,210,130,0.1);
+}
+
+
+/* START LABEL */
+
+#game-board::after {
+    content: "START";
+
+    position: absolute;
+
+    bottom: 8px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 5;
+
+    color: #3d4c51;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================
+   ROAD LINES
+========================= */
+
+.road-line {
+    position: absolute;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 1px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(130,145,150,0.35) 0 24px,
+            transparent 24px 42px
+        );
+
+    z-index: 4;
+}
+
+.line-1 {
+    top: 100px;
+}
+
+.line-2 {
+    top: 220px;
+}
+
+
+/* =========================
+   PLAYER
+========================= */
+
+#player {
+    position: absolute;
+
+    width: 28px;
+
+    height: 28px;
+
+    z-index: 30;
+
+    background:
+        #cbdde3;
+
+    border: 2px solid #e6f2f5;
+
+    box-shadow:
+        0 0 12px rgba(170,220,235,0.3);
+
+    transform: rotate(45deg);
+}
+
+#player::after {
+    content: "";
+
+    position: absolute;
+
+    width: 7px;
+
+    height: 7px;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background: #152126;
+
+    border-radius: 50%;
+}
+
+
+/* =========================
+   MOVING OBSTACLES
+========================= */
+
+.moving-obstacle {
+    position: absolute;
+
+    width: 42px;
+
+    height: 24px;
+
+    z-index: 15;
+
+    display: block;
+
+    background:
+        linear-gradient(
+            180deg,
+            #a34242,
+            #4c181d
+        );
+
+    border: 2px solid #d35e5e;
+
+    border-radius: 3px;
+
+    box-shadow:
+        0 0 10px rgba(220,70,70,0.25),
+        0 0 25px rgba(190,50,50,0.08);
+}
+
+.moving-obstacle::before,
+.moving-obstacle::after {
+    content: "";
+
+    position: absolute;
+
+    top: 7px;
+
+    width: 5px;
+
+    height: 7px;
+
+    background: #ffaaa0;
+
+    box-shadow:
+        0 0 7px rgba(255,80,70,0.7);
+}
+
+.moving-obstacle::before {
+    left: 4px;
+}
+
+.moving-obstacle::after {
+    right: 4px;
+}
+
+
+/* =========================
+   JUMBLE
+========================= */
+
+.mini-stage {
+    margin-top: 45px;
+
+    padding: 30px;
+
+    background: #080c0e;
+
+    border: 1px solid #28363c;
+}
+
+.mini-stage h2 {
+    margin-top: 18px;
+
+    font-size: 25px;
+}
+
+.stage-text {
+    margin-top: 10px;
+}
+
+.jumble-words {
+    margin-top: 25px;
+
+    padding: 22px;
+
+    background: #040607;
+
+    border: 1px dashed #3a484d;
+
+    color: #d6e0e3;
+
+    text-align: center;
+
+    font-size: 17px;
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================
+   HIDDEN MESSAGE
+========================= */
+
+#hidden-message-box {
+    min-height: 100px;
+
+    margin-top: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #030506;
+
+    border: 1px solid #27363b;
+
+    color: #b5c8ce;
+
+    letter-spacing: 3px;
+
+    transition: opacity 0.5s ease;
+}
+
+#hidden-message {
+    transition: opacity 0.5s ease;
+}
+
+
+/* =========================
+   MEMORY
+========================= */
+
+.memory-stats {
+    margin-top: 20px;
+
+    color: #6d7e84;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+#memory-board {
+    margin: 25px auto 0;
+
+    width: min(500px, 100%);
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+.memory-card {
+    width: 100%;
+
+    aspect-ratio: 1;
+
+    margin: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        #090f12;
+
+    border: 1px solid #304149;
+
+    color: #778990;
+
+    font-size: 22px;
+}
+
+.memory-card:hover {
+    border-color: #627b85;
+}
+
+.memory-card.flipped {
+    background:
+        #16252c;
+
+    border-color: #69848e;
+
+    color: #dce9ed;
+}
+
+.memory-card.matched {
+    background:
+        #10251a;
+
+    border-color: #4e986a;
+
+    color: #7be09a;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+#signal03-final {
+    text-align: center;
+}
+
+.final-box {
+    margin-top: 30px;
+
+    padding: 28px;
+
+    text-align: center;
+
+    background: #080d0f;
+
+    border: 1px solid #34464d;
+}
+
+.final-status {
+    margin-top: 18px;
+
+    color: #6fdb92;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+}
+
+.final-subtext {
+    margin-top: 12px;
+}
+
+
+/* =========================
+   SIGNAL 04
+========================= */
+
+.signal4-reveal {
+    margin-top: 35px;
+
+    padding: 28px;
+
+    text-align: center;
+
+    background: #080c0e;
+
+    border: 1px solid #33454c;
+}
+
+.signal4-reveal p {
+    color: #91a1a7;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    line-height: 1.8;
+}
+
+.signal4-reveal .dim {
+    margin-top: 8px;
+
+    color: #4c5b60;
+}
+
+.signal4-button {
+    margin-top: 22px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 18px 10px;
+    }
+
+    .terminal,
+    .signal {
+        padding: 28px 20px;
+    }
+
+    h1 {
+        font-size: 34px;
+
+        letter-spacing: 5px;
+    }
+
+    .grid {
+        grid-template-columns:
+            repeat(4, 1fr);
+    }
+
+    .game-area {
+        padding: 20px 12px;
+    }
+
+    #game-board {
+        height: 360px;
+    }
+
+    .game-stats {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .signal-box,
+    .mini-stage,
+    .final-box {
+        padding: 20px;
+    }
+
+    #memory-board {
+        gap: 8px;
+    }
+
+    .memory-card {
+        font-size: 17px;
+    }
+}
+
+
+@media (max-width: 430px) {
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .grid {
+        gap: 6px;
+    }
+
+    .grid-box {
+        font-size: 10px;
+    }
+
+    #game-board {
+        height: 330px;
+    }
+
+    .moving-obstacle {
+        width: 42px;
+        height: 24px;
+    }
+
+    #finish {
+        width: 125px;
+    }
+}
